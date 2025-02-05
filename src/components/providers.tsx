@@ -1,8 +1,7 @@
 'use client'
 
 import { ConvexProvider, ConvexReactClient } from 'convex/react'
-import { ReactNode } from 'react'
-
+import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import { ConvexQueryClient } from '@convex-dev/react-query'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -27,10 +26,18 @@ const queryClient = new QueryClient({
 
 convexQueryClient.connect(queryClient)
 
-export function Providers({ children }: { children: ReactNode }) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ConvexProvider client={convex}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </QueryClientProvider>
     </ConvexProvider>
   )
+}
+
+const ThemeProvider = ({ children, ...props }: React.ComponentProps<typeof NextThemesProvider>) => {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
 }

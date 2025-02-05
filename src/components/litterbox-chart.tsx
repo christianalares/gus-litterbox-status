@@ -8,8 +8,8 @@ export const LitterboxChart = () => {
   const { data: visits } = useSuspenseQuery(convexQuery(api.litterboxVisits.get, {}))
 
   return (
-    <div className="h-full">
-      <h1>Litterbox Chart</h1>
+    <div>
+      <h1 className="font-sans">Litterbox Chart</h1>
       {visits.map(visit => (
         <div key={visit._id}>
           <p>{visit._id}</p>
