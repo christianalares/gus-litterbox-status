@@ -13,6 +13,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as http from "../http.js";
 import type * as litterboxVisits from "../litterboxVisits.js";
 
 /**
@@ -24,6 +25,7 @@ import type * as litterboxVisits from "../litterboxVisits.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  http: typeof http;
   litterboxVisits: typeof litterboxVisits;
 }>;
 export declare const api: FilterApi<

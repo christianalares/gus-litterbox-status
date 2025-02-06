@@ -8,10 +8,10 @@ export default function Home() {
     <div className="p-8">
       <div className="flex flex-col md:flex-row gap-8 justify-center">
         <div className="self-center aspect-square max-w-[40dvw] rounded-4xl overflow-hidden">
-          <Image src={gus} alt="Gus" width={1000} height={1000} className="w-full h-full" />
+          <Image priority src={gus} alt="Gus" width={1000} height={1000} className="w-full h-full" />
         </div>
 
-        <div className="flex-1 rounded-4xl p-8 border border-foreground/20">
+        <div className="flex-1 rounded-4xl h-[200px] md:h-auto overflow-hidden border border-foreground/20">
           <Suspense fallback={<div>Loading...</div>}>
             <LitterboxChart />
           </Suspense>
