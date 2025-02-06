@@ -4,8 +4,28 @@ import { z } from 'zod'
 import { v } from 'convex/values'
 
 export const get = query({
-  args: {},
-  handler: async ctx => {
+  args: {
+    interval: v.optional(
+      v.object({
+        start: v.number(),
+        end: v.number(),
+      })
+    ),
+  },
+  handler: async (ctx, args) => {
+    if (args.interval) {
+      const { start, end } = args.interval
+
+      const visits = await ctx.db
+        .query('litterboxVisits')
+        .withIndex('by_createdAt')
+        .filter(q => q.and(q.gte(q.field('createdAt'), start), q.lte(q.field('createdAt'), end)))
+        .order('asc')
+        .collect()
+
+      return visits
+    }
+
     const visits = await ctx.db.query('litterboxVisits').withIndex('by_createdAt').order('asc').collect()
 
     return visits
