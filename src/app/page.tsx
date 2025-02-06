@@ -8,7 +8,7 @@ import { Ping } from '@/components/ping'
 
 export default function Home() {
   return (
-    <main className="p-8 relative">
+    <main className="p-8 relative max-w-7xl mx-auto">
       <Ping />
 
       <div className="flex flex-col gap-8">

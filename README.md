@@ -2,7 +2,7 @@
 <p align="center">Enterprise-grade, cloud-native feline waste analytics platform leveraging AI-driven insights for the modern cat owner.</p>
 
 <p align="center">
-  <a href="#">
+  <a href="https://gus-litterbox-stats.vercel.app">
     <img src="./public/gus-litterbox-stats.png" width="1000px" alt="Gus Litterbox Stats" />
   </a>
 </p>

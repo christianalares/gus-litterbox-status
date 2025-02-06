@@ -19,8 +19,6 @@ export const MonthDropdown = ({ selectedMonth, onChange }: Props) => {
     end: endOfYear(new Date()),
   })
 
-  console.log(selectedMonth.toISOString())
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

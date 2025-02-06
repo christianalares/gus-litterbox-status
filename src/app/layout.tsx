@@ -4,6 +4,7 @@ import './globals.css'
 import { Providers } from '@/components/providers'
 import { cn } from '@/lib/utils'
 import { Header } from '@/components/header'
+import { Console } from '@/components/console'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -38,6 +39,7 @@ export default function RootLayout({
     >
       <body className="antialiased">
         <Providers>
+          <Console />
           <Header />
           {children}
         </Providers>
