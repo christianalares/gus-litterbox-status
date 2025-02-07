@@ -65,7 +65,7 @@ export const postVisit = httpAction(async (ctx, request) => {
   const parsedBody = postVisitSchema.safeParse(body)
 
   if (!parsedBody.success) {
-    return new Response('Invalid body', { status: 400 })
+    return new Response(parsedBody.error.message, { status: 400 })
   }
 
   await ctx.runMutation(api.litterboxVisits.post, {
