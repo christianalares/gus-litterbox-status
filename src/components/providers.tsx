@@ -8,7 +8,7 @@ import { OpenPanelComponent } from '@openpanel/nextjs'
 
 const NEXT_PUBLIC_CONVEX_URL = process.env.NEXT_PUBLIC_CONVEX_URL
 const NEXT_PUBLIC_OPENPANEL_DASHBOARD_CLIENT_ID = process.env.NEXT_PUBLIC_OPENPANEL_DASHBOARD_CLIENT_ID
-const OPENPANEL_SECRET = process.env.OPENPANEL_SECRET
+// const OPENPANEL_SECRET = process.env.OPENPANEL_SECRET
 
 if (!NEXT_PUBLIC_CONVEX_URL) {
   throw new Error('NEXT_PUBLIC_CONVEX_URL is not set')
@@ -18,9 +18,9 @@ if (!NEXT_PUBLIC_OPENPANEL_DASHBOARD_CLIENT_ID) {
   throw new Error('NEXT_PUBLIC_OPENPANEL_DASHBOARD_CLIENT_ID is not set')
 }
 
-if (!OPENPANEL_SECRET) {
-  throw new Error('OPENPANEL_SECRET is not set')
-}
+// if (!OPENPANEL_SECRET) {
+//   throw new Error('OPENPANEL_SECRET is not set')
+// }
 
 const convex = new ConvexReactClient(NEXT_PUBLIC_CONVEX_URL)
 
@@ -46,7 +46,7 @@ const OpenPanelProvider = () => {
     <>
       <OpenPanelComponent
         clientId={NEXT_PUBLIC_OPENPANEL_DASHBOARD_CLIENT_ID}
-        clientSecret={OPENPANEL_SECRET}
+        // clientSecret={OPENPANEL_SECRET}
         trackScreenViews
         disabled={process.env.NODE_ENV !== 'production'}
         trackOutgoingLinks
